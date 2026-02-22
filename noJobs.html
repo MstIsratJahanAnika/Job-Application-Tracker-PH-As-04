@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Jobs</title>
+
+    <!-- tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="jobs.png" type="image/x-icon">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- external css -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+            font-optical-sizing: auto;
+        }
+    </style>
+
+</head>
+
+<body class="bg-[#F8FAFC] pb-[60px]">
+    <header>
+        <section class="container mx-auto pt-16 border-b-2 border-[#E6E7E9] pb-[30px] w-[80%] sticky">
+            <h1 class="color-black font-bold text-[32px]">Job Application Tracker</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Total</p>
+                    <h3 id="total" class="font-bold">8</h3>
+                </div>
+
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Interview</p>
+                    <h3 id="interview" class="color-green font-bold">0</h3>
+                </div>
+
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Rejected</p>
+                    <h3 id="rejected" class="color-red font-bold">0</h3>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="mt-[30px] w-[80%] mx-auto">
+            <div class="flex justify-between">
+                <h2 class="color-black font-semibold text-[20px]">Available Jobs</h2>
+                <p class="color-gray">8 jobs</p>
+            </div>
+
+            <div class="pt-[24px] flex gap-2 pb-4">
+                <button class="bg-white color-gray px-10 py-2 rounded-[4px] shadow">All</button>
+                <button class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
+                <button class=" color-gray bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
+            </div>
+
+            <!-- card section -->
+             <div class="cards pt-[111px]">
+                <div class="image flex justify-center mb-5">
+                    <img src="./jobs.png" alt="">
+                </div>
+                <div class="texts text-center">
+                    <h3 class="font-semibold text-[24px] color-black">No jobs available</h3>
+                    <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+                </div>
+             </div>
+
+        </section>
+    </main>
+
+</body>
+
+</html>
