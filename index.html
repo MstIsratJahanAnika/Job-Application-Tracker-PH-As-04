@@ -71,31 +71,36 @@
             </div>
             <!-- buttons -->
             <div class="pt-[24px] flex gap-2 pb-4">
-                <button class="bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
-                <button class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
-                <button class=" color-gray bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
+                <button id="all-btn" onclick="toggleStyle('all-btn')" class="bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
+                <button id="interview-btn" onclick="toggleStyle('interview-btn')" class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
+                <button id="rejected-btn" onclick="toggleStyle('rejected-btn')" class=" text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
             </div>
+
+            <!-- filtered cards -->
+             <section id="filtered-section">
+
+             </section>
 
             <!-- cards -->
             <div id="cards" class="space-y-4">
                 <div id="card-1" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
                     <!-- left side -->
                     <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">Mobile First Corp</h3>
-                        <p class="text-[#64748B] mb-[20px]">React Native Developer</p>
-                        <p class="text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                        <h3 class=" title color-black font-semibold text-[18px] leading-[26px]">Mobile First Corp</h3>
+                        <p class="work text-[#64748B] mb-[20px]">React Native Developer</p>
+                        <p class="about text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
                         <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Build cross-platform mobile applications using React Native.
+                            <p class="filter mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
+                            <p class="description text-[#323B49] mt-2">Build cross-platform mobile applications using React Native.
                                 Work on products used by
                                 millions of users worldwide.
                             </p>
                         </div>
 
                         <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                        <div class=" select-buttons mt-5">
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -106,8 +111,8 @@
                     </div>
                 </div>
 
-                <div id="card-2" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
+               <div id="card-2" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
+                    <!-- left side  -->
                     <div>
                         <h3 class="color-black font-semibold text-[18px] leading-[26px]">WebFlow Agency</h3>
                         <p class="text-[#64748B] mb-[20px]">Web Designer & Developer</p>
@@ -119,14 +124,14 @@
                             </p>
                         </div>
 
-                        <!-- duita button thakbe -->
+                         <!-- duita button thakbe  -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
-                    <!--right side -->
+                   <!-- right side -->
                     <div>
                         <button class="shadow btn btn-soft rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
@@ -148,8 +153,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -175,8 +180,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -202,8 +207,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -230,8 +235,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -257,8 +262,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -285,8 +290,8 @@
 
                         <!-- duita button thakbe -->
                         <div class="mt-5">
-                            <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
+                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
                         </div>
                     </div>
 
@@ -299,6 +304,9 @@
             </div>
         </section>
     </main>
+
+    <script src="./script/script.js"></script>
+    
 </body>
 
 </html>
