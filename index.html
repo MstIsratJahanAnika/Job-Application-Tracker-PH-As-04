@@ -17,18 +17,17 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- daisyUI -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet">
 
+    <!-- external css -->
+    <link rel="stylesheet" href="styles/style.css">
+
     <style>
-        *{
+        * {
             font-family: "Geist", sans-serif;
             font-optical-sizing: auto;
         }
@@ -36,11 +35,25 @@
 
 </head>
 
-<body>
+<body class="bg-[#F8FAFC]">
     <header>
-        <section>
-            <div>
+        <section class="container mx-auto pt-16">
+            <h1 class="color-black font-bold">Job Application Tracker</h1>
+            <div class="grid grid-cols-3 gap-4 mt-5">
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Total</p>
+                    <h3 id="total">0</h3>
+                </div>
 
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Interview</p>
+                    <h3 id="interview" class="color-green font-bold">0</h3>
+                </div>
+
+                <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
+                    <p>Rejected</p>
+                    <h3 id="rejected" class="color-red font-bold">0</h3>
+                </div>
             </div>
         </section>
     </header>
