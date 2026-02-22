@@ -17,6 +17,10 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +28,7 @@
         rel="stylesheet">
 
     <!-- external css -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
     <style>
         * {
@@ -37,9 +41,9 @@
 
 <body class="bg-[#F8FAFC]">
     <header>
-        <section class="container mx-auto pt-16">
-            <h1 class="color-black font-bold">Job Application Tracker</h1>
-            <div class="grid grid-cols-3 gap-4 mt-5">
+        <section class="container mx-auto pt-16 border-b-2 border-[#E6E7E9] pb-[30px] w-[80%] mx-auto">
+            <h1 class="color-black font-bold text-[32px]">Job Application Tracker</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
                 <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
                     <p>Total</p>
                     <h3 id="total">0</h3>
@@ -57,6 +61,27 @@
             </div>
         </section>
     </header>
+
+    <main>
+        <!-- job section -->
+        <section class="mt-[30px] w-[80%] mx-auto">
+            <div class="flex justify-between">
+                <h2 class="color-black font-semibold text-[20px]">Available Jobs</h2>
+                <p class="color-gray">8 jobs</p>
+            </div>
+            <!-- buttons -->
+            <div class="pt-[24px] flex gap-2 pb-4">
+                <button class="bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
+                <button class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
+                <button class=" color-gray bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
+            </div>
+
+            <!-- cards -->
+             <div>
+                
+             </div>
+        </section>
+    </main>
 </body>
 
 </html>
