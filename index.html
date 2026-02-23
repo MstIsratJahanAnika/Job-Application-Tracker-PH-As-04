@@ -43,17 +43,23 @@
     <header>
         <section class="container mx-auto pt-16 border-b-2 border-[#E6E7E9] pb-[30px] w-[80%] sticky">
             <h1 class="color-black font-bold text-[32px]">Job Application Tracker</h1>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
+
+            <!-- card container -->
+            <div class="cards grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5">
+
+                <!-- card 1 -->
                 <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
                     <p>Total</p>
                     <h3 id="total" class="font-bold">8</h3>
                 </div>
 
+                <!-- card 2 -->
                 <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
                     <p>Interview</p>
                     <h3 id="interview" class="color-green font-bold">0</h3>
                 </div>
 
+                <!-- card 3 -->
                 <div class="bg-white p-5 rounded-[8px] border border-[#f1f2f4]">
                     <p>Rejected</p>
                     <h3 id="rejected" class="color-red font-bold">0</h3>
@@ -65,248 +71,41 @@
     <main>
         <!-- job section -->
         <section class="mt-[30px] w-[80%] mx-auto">
+
+            <!-- section header -->
             <div class="flex justify-between">
                 <h2 class="color-black font-semibold text-[20px]">Available Jobs</h2>
                 <p class="color-gray">8 jobs</p>
             </div>
             <!-- buttons -->
             <div class="pt-[24px] flex gap-2 pb-4">
-                <button id="all-btn" onclick="toggleStyle('all-btn')" class="bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
-                <button id="interview-btn" onclick="toggleStyle('interview-btn')" class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
-                <button id="rejected-btn" onclick="toggleStyle('rejected-btn')" class=" text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
+                <button id="all-btn" onclick="toggleStyle('all', this)"
+                    class="bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
+                <button id="interview-btn" onclick="toggleStyle('interview-btn', this)"
+                    class="text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
+                <button id="rejected-btn" onclick="toggleStyle('rejected-btn', this)"
+                    class=" text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
             </div>
 
-            <!-- filtered cards -->
-             <section id="filtered-section">
+            <!-- job container -->
+            <div id="job-container" class="job-container grid grid-cols-1"></div>
+        </section>
 
-             </section>
 
-            <!-- cards -->
-            <div id="cards" class="space-y-4">
-                <div id="card-1" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class=" title color-black font-semibold text-[18px] leading-[26px]">Mobile First Corp</h3>
-                        <p class="work text-[#64748B] mb-[20px]">React Native Developer</p>
-                        <p class="about text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
-                        <div>
-                            <p class="filter mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="description text-[#323B49] mt-2">Build cross-platform mobile applications using React Native.
-                                Work on products used by
-                                millions of users worldwide.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class=" select-buttons mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
+        <!-- No-jobs Available section -->
+        <section class="container w-[80%] mx-auto">
+            <div id="noJobSection" class="hidden text-center py-16 bg-white rounded-lg border border-[#F1F2F4]">
+                <div>
+                    <img src="./jobs.png" alt="">
                 </div>
-
-               <div id="card-2" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side  -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">WebFlow Agency</h3>
-                        <p class="text-[#64748B] mb-[20px]">Web Designer & Developer</p>
-                        <p class="text-[#64748B]">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Create stunning web experiences for high-profile clients.
-                                Must have portfolio and experience with modern web design trends.
-                            </p>
-                        </div>
-
-                         <!-- duita button thakbe  -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                   <!-- right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-3" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">DataViz Solutions</h3>
-                        <p class="text-[#64748B] mb-[20px]">Data Visualization Specialist</p>
-                        <p class="text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Transform complex data into compelling visualizations.
-                                Required skills: D3.js, React, and strong analytical thinking.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-4" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">CloudFirst Inc</h3>
-                        <p class="text-[#64748B] mb-[20px]">Backend Developer</p>
-                        <p class="text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Design and maintain scalable backend systems using Python and
-                                AWS. Work with modern DevOps practices and cloud infrastructure..
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-5" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">Innovation Labs</h3>
-                        <p class="text-[#64748B] mb-[20px]">UI/UX Engineer</p>
-                        <p class="text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Create beautiful and functional user interfaces for our suite
-                                of products. Strong design skills and frontend development expertise required.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-6" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">MegaCorp Solutions</h3>
-                        <p class="text-[#64748B] mb-[20px]">JavaScript Developer</p>
-                        <p class="text-[#64748B]">New York, NY • Full-time • $130,000 - $170,00</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Build enterprise applications with JavaScript and modern
-                                frameworks. We offer competitive compensation, health insurance, and professional
-                                development opportunities.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-7" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">StartupXYZ</h3>
-                        <p class="text-[#64748B] mb-[20px]">Full Stack Engineer</p>
-                        <p class="text-[#64748B]">Remote • Full-time • $120,000 - $160,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">Join our fast-growing startup and work on our core platform.
-                                Experience with Node.js and React required. Great benefits and equity package included.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
-
-                <div id="card-8" class="bg-white p-6 flex justify-between rounded-[8px] shadow">
-                    <!-- left side -->
-                    <div>
-                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">TechCorp Industries</h3>
-                        <p class="text-[#64748B] mb-[20px]">Senior Frontend Developer</p>
-                        <p class="text-[#64748B]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
-                        <div>
-                            <p class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
-                            <p class="text-[#323B49] mt-2">We are looking for an experienced Frontend Developer to build
-                                scalable web applications using React and TypeScript. You will work with a talented team
-                                on cutting-edge projects.
-                            </p>
-                        </div>
-
-                        <!-- duita button thakbe -->
-                        <div class="mt-5">
-                            <button class="iv btn btn-soft btn-success border border-success">INTERVIEW</button>
-                            <button class="rj btn btn-soft btn-error border border-error">REJECTED</button>
-                        </div>
-                    </div>
-
-                    <!--right side -->
-                    <div>
-                        <button class="shadow btn btn-soft rounded-full"><i
-                                class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                </div>
+                <h3>No jobs available</h3>
+                <p>Check back soon for new job opportunities</p>
             </div>
         </section>
     </main>
 
     <script src="./script/script.js"></script>
-    
+
 </body>
 
 </html>

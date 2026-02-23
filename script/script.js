@@ -2,6 +2,8 @@ const totalJob = document.getElementById('total');
 const interview = document.getElementById('interview');
 const rejected = document.getElementById('rejected');
 
+const filteredSection = document.getElementById('filtered-section')
+
 
 const totalCards = document.getElementById('cards');
 const numberOfCards = totalCards.children.length;
@@ -34,6 +36,11 @@ function toggleStyle(id) {
     // selected button
     document.getElementById(id).classList.remove('bg-white', 'text-[#323B49]');
     document.getElementById(id).classList.add('bg-[#3B82F6]', 'text-white');
+
+    if(id == 'interview-btn'){
+        totalCards.classList.add('hidden');
+        filteredSection.classList.remove('hidden');
+    }
 }
 
 document.querySelector('main').addEventListener('click', function (event) {
@@ -42,7 +49,7 @@ document.querySelector('main').addEventListener('click', function (event) {
         const title = parentNode.querySelector('.title').innerText;
         const work = parentNode.querySelector('.work').innerText;
         const about = parentNode.querySelector('.about').innerText;
-        const filter = parentNode.querySelector('.filter').innerText;
+        const status = parentNode.querySelector('.status').innerText;
         const description = parentNode.querySelector('.description').innerText;
         // console.log(title, work, about, filter, description);
 
@@ -51,25 +58,28 @@ document.querySelector('main').addEventListener('click', function (event) {
             title,
             work,
             about,
-            filter,
+            status,
             description
         }
-
-        console.log(cardInfo);
-
         const itemExists = interviewList.find(item => item.title == cardInfo.title)
+
+        parentNode.querySelector('.status').innerText = 'Interview';
+
         if (!itemExists) {
             interviewList.push(cardInfo);
         }
-        filterInterview();
+        renderInterview();
     }
 })
 
-function filterInterview() {
+function renderInterview() {
     document.getElementById('filtered-section').innerHTML = ''; //initially empty
-    const div = document.createElement('div');
-    div.className = 'bg-white p-6 flex justify-between rounded-[8px] shadow';
-    div.innerHTML = ` 
+
+    for (let list of interviewList) {
+
+        let div = document.createElement('div');
+        div.className = 'bg-white p-6 flex justify-between rounded-[8px] shadow';
+        div.innerHTML = ` 
                     <div>
                         <h3 class=" title color-black font-semibold text-[18px] leading-[26px]">Mobile First Corp</h3>
                         <p class="work text-[#64748B] mb-[20px]">React Native Developer</p>
@@ -94,4 +104,8 @@ function filterInterview() {
                         <button class="shadow btn btn-soft rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>`
+
+
+        filteredSection.appendChild(div)
+    }
 }
