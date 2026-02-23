@@ -26,6 +26,35 @@ function toggleStyle(type, element){
 }
 
 
+function updateCounts(){
+    const all = jobs.length;
+    const interview = jobs.filter(job => job.status === 'interview').length;
+    const rejected = jobs.filter(job => job.status === 'rejected').length;
+
+
+    document.getElementById('total').innerText = all;
+    document.getElementById('interview').innerText = interview;
+    document.getElementById('rejected').innerText = rejected;
+
+    let sectionNumber;
+    if(currentType === 'all'){
+        sectionNumber = all;
+    }
+    else if(currentType === 'interview'){
+        sectionNumber = interview;
+    }
+    else{
+        sectionNumber = rejected;
+    }
+
+    document.getElementById('sectionCount').innerText = sectionNumber + "jobs";
+
+    if(sectionNumber > 0 && (currentType === 'interview' || currentType === 'rejected')){
+        document.getElementById('sectionCount').innerText = sectionNumber + 'of' + all + 'jobs';
+    }
+
+}
+
 function renderJobs(){
     const container = document.getElementById('jobs-container');
 
@@ -89,18 +118,31 @@ function renderJobs(){
                     </div>
 
                     <div class="flex gap-2">
-                        <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
-                        <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                        <button onclick="updateStatus(${job.id}, 'interview')" class="btn btn-soft btn-success border border-success">INTERVIEW</button>
+                        <button onclick="updateStatus(${job.id}, 'rejected')" class="btn btn-soft btn-error border border-error">REJECTED</button>
                     </div>
 
 
                 </div>
             </div>
-        `
+
+
+        `;
+
+        container.appendChild(card);
     }
 
+    updateCounts();
 
 }
+
+
+function deleteJob(id){
+    jobs = jobs.filter(job => job.id !== id);
+    renderJobs();
+}
+
+renderJobs();
 
 
 // const totalJob = document.getElementById('total');
