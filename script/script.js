@@ -26,6 +26,83 @@ function toggleStyle(type, element){
 }
 
 
+function renderJobs(){
+    const container = document.getElementById('jobs-container');
+
+    container.innerHTML = "";
+
+    // filter jobs
+    let filtered;
+    if(currentType === 'all'){
+        filtered = jobs;
+    }
+    else{
+        filtered = jobs.filter(job => job.status === currentType);
+    }
+    console.log(currentType);
+
+
+    const hiddenDiv = document.getElementById('noJobSection');
+    // connect to hidden tab
+    if(filtered.length === 0){
+        hiddenDiv.classList.remove('hidden');
+    }
+
+    for(let job of filtered){
+
+        const card = document.createElement('div');
+        card.className = "bg-white p-6 flex justify-between rounded-[8px] shadow";
+
+        card.innerHTML = `
+            
+            <div class="space-y-4">
+
+                <!-- card header side -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="color-black font-semibold text-[18px] leading-[26px]">${job.jobName}</h3>
+                        <p class="text-[#64748B] mb-[20px]">${job.post}</p>
+                    </div>
+
+                    <div>
+                        <button onclick="deleteJob(${job.id})"
+                            class="shadow btn btn-soft rounded-full cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+
+                <p id="not-applied" class="mt-5"><span class="bg-[#EEF4FF] py-2 px-3">NOT APPLIED</span></p>
+                <p class="text-[14px] leading-5 text-[#64748B] space-x-2">
+                        <span class="inline-block">${job.place}</span> • <span
+                            class="inline-block ml-2">${job.type}</span> • <span
+                            class="inline-block ml-2">${job.salary}</span>
+                    </p>
+
+                    <div>
+                        <div class = "${job.applied === 'NOT APPLIED'? 'mb-2' : 'block mb-2'}">
+                            <span class = "inline-block px-3 py-2 rounded border text-xs font-bold uppercase
+                                ${job.applied === 'interview' ? 'border-green-500 text-green-500 bg-green-200' :  'border-red-500 text-red-500 bg-red-200'}">
+                                ${job.status}
+                            </span>
+                        </div>
+                        <p class="text-[14px] color-gray leading-5 mt-2">${job.description}</p>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button class="btn btn-soft btn-success border border-success">INTERVIEW</button>
+                        <button class="btn btn-soft btn-error border border-error">REJECTED</button>
+                    </div>
+
+
+                </div>
+            </div>
+        `
+    }
+
+
+}
+
+
 // const totalJob = document.getElementById('total');
 // const interview = document.getElementById('interview');
 // const rejected = document.getElementById('rejected');
