@@ -1,4 +1,4 @@
-let currentTab = 'all';
+let currentType = 'all';
 
 let jobs = [
     {id:1, jobName: 'Mobile First Corp', post:'React Native Developer', place:'Remote', type:'Full-time', salary:'$130,000-$175,000', applied:'NOT APPLIED', description:'Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.', status:'all'},
@@ -11,6 +11,19 @@ let jobs = [
     {id:8, jobName: 'TechCorp Industries', post:'Senior Frontend Developer', place:'Remote', type:'Full-time', salary:'$130,000-$175,000', applied:'NOT APPLIED', description:'We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.', status:'all'},
 ]
 
+
+function toggleStyle(type, element){
+    currentType = type;
+
+    const buttons = document.querySelectorAll('.type-btn');
+    for(const btn of buttons){
+        btn.classList.remove('bg-[#3B82F6]', 'text-white');
+        btn.classList.add('text-[#323B49]','bg-white');
+    }
+
+    element.classList.remove('text-[#323B49]','bg-white');
+    element.classList.add('bg-[#3B82F6]', 'text-white');
+}
 
 
 // const totalJob = document.getElementById('total');
