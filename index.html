@@ -70,25 +70,25 @@
 
     <main>
         <!-- job section -->
-        <section class="mt-[30px] w-[80%] mx-auto">
+        <section class="container mt-[30px] w-[80%] mx-auto">
 
             <!-- section header -->
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center mb-6">
                 <h2 class="color-black font-semibold text-[20px]">Available Jobs</h2>
                 <p id="sectionCount" class="color-gray">8 jobs</p>
             </div>
             <!-- buttons -->
             <div class="pt-[24px] flex gap-2 pb-4">
                 <button id="all-btn" onclick="toggleStyle('all', this)"
-                    class="type-btn bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white">All</button>
+                    class="type-btn bg-[#3B82F6] px-10 py-2 rounded-[4px] shadow text-white cursor-pointer">All</button>
                 <button id="interview-btn" onclick="toggleStyle('interview', this)"
-                    class="type-btn text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Interview</button>
+                    class="type-btn text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow cursor-pointer">Interview</button>
                 <button id="rejected-btn" onclick="toggleStyle('rejected', this)"
-                    class=" type-btn text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow">Rejected</button>
+                    class=" type-btn text-[#323B49] bg-white px-2 py-2 rounded-[4px] shadow cursor-pointer">Rejected</button>
             </div>
 
             <!-- job container - empty div-->
-            <div id="jobs-container" class="job-container grid grid-cols-1"></div>
+            <div id="jobs-container" class="job-container grid grid-cols-1 gap-6"></div>
         </section>
 
 
