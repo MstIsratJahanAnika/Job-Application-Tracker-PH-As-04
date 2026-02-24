@@ -111,11 +111,12 @@ function renderJobs(){
                     </p>
 
                     <div>
-                        <div class = "${job.status === 'all'? 'hidden' : 'block'} mb-2">
-                            <span class = "inline-block px-3 py-2 rounded border text-xs font-bold uppercase
+                        <div class =" mb-2">
+                            ${job.status === 'all'? `<button class ="color-black px-3 py-2 font-medium bg-[#EEF4FF] rounded uppercase">not applied</button>` : `<span class = "inline-block px-3 py-2 rounded border font-bold uppercase
                                 ${job.status === 'interview' ? 'border-green-500 text-green-500 bg-green-200' :  'border-red-500 text-red-500 bg-red-200'}">
                                 ${job.status}
-                            </span>
+                            </span>`}
+                            
                         </div>
                         <p class="text-[14px] color-gray leading-5 mt-2">${job.description}</p>
                     </div>
